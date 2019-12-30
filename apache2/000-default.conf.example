@@ -1,0 +1,32 @@
+ <VirtualHost *:8080>
+	DocumentRoot /var/www/html
+	ServerAdmin webmaster@localhost
+	ServerName localhost.dothnews
+</VirtualHost>
+
+
+
+
+<VirtualHost *:443>
+	DocumentRoot /var/www/html
+
+	ErrorLog              /var/log/apache2/external-https_error.log
+    CustomLog             /var/log/apache2/external-https_access.log combined
+
+	SSLEngine On
+
+	SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
+	SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+
+
+	## Proxy rules
+	ProxyRequests Off
+	ProxyPreserveHost On
+    ProxyPass               / http://varnishserver:6081/
+    ProxyPassReverse        / http://varnishserver:6081/
+	RequestHeader set X-Forwarded-Proto "https"
+
+
+	## RedirectMatch rules
+	RedirectMatch 404  \.git(/.*|ignore$|$)
+</VirtualHost>

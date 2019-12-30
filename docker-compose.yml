@@ -1,0 +1,80 @@
+version: '3'
+
+services:
+  proxyrev:
+    build: proxy/
+    hostname: proxy
+    container_name: proxy
+    tty: true
+    volumes:
+      - ~/Downloads/:/var/dowload  
+      - ./proxy/sites-available:/etc/nginx/sites-available
+    #ports:
+      #- '80:80'
+      #- '443:443'
+    depends_on:
+      - apache
+    links:
+      - apache
+
+
+  varnish:
+    build: varnish/
+    hostname: varnish
+    container_name: varnishserver
+    restart: always
+    volumes:
+      - ./varnish/default.vcl:/etc/varnish/default.vcl
+    ports:
+      - ${VARNISH_PORT}:6081
+    depends_on:
+      - apache
+    links:
+      - apache
+
+  apache:
+    build:      
+      context: ./apache2
+      #args:
+        #- DOCUMENT_ROOT=${APACHE_DOCUMENT_ROOT}
+    hostname: php
+    container_name: phpserver
+    restart: always
+    ports:
+      - ${APACHE_HOST_HTTP_PORT}:8080
+      - ${APACHE_HOST_HTTPS_PORT}:443
+    volumes:
+      - ${APP_CODE_PATH_HOST}:/var/www/html
+      - ./apache2/apache2.conf:/etc/apache2/apache2.conf
+      - ./apache2/php.ini:/etc/php/5.6/apache2/php.ini
+      - ${APACHE_HOST_LOG_PATH}:/var/log/apache2
+      - ${APACHE_SITES_PATH}:/etc/apache2/sites-available
+    depends_on:
+      - mysqldb
+    links:
+      - mysqldb
+
+  mysqldb:
+    container_name: mysqlserver
+    hostname: msql
+    image: mysql:5.6
+    restart: always
+    ports:
+      - '3306:3306'
+    volumes:
+      - ~/Documents/Sites/mysql-container:/var/lib/mysql     
+      - ~/Downloads/:/var/dowload   
+    environment:
+      - MYSQL_ROOT_PASSWORD=121212
+      - MYSQL_DATABASE=app_development
+  
+  phpma:
+    container_name: myaserver
+    image: phpmyadmin/phpmyadmin:latest
+    hostname: phpma
+    links:
+      - mysqldb
+    ports:
+      - 81:80
+    environment:
+      - PMA_ARBITRARY=1  
