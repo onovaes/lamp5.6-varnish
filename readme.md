@@ -11,7 +11,8 @@
 
 
 ## TODO'S
-- Finalizar configuração do Proxy Load Balancer
+- Finalizar configuração do Proxy (Load Balancer) 
+- Criar novo container e balancear carga entre os web servers
 
 
 ## Informações Gerais
