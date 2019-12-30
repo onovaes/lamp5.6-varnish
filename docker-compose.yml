@@ -7,7 +7,7 @@ services:
     container_name: proxy
     tty: true
     volumes:
-      - ~/Downloads/:/var/dowload  
+      - ${DOWNLOAD_PATH_HOST}:/var/dowload   
       - ./proxy/sites-available:/etc/nginx/sites-available
     #ports:
       #- '80:80'
@@ -62,10 +62,10 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - ~/Documents/Sites/mysql-container:/var/lib/mysql     
-      - ~/Downloads/:/var/dowload   
+      - ${DATA_PATH_HOST}:/var/lib/mysql 
+      - ${DOWNLOAD_PATH_HOST}:/var/dowload   
     environment:
-      - MYSQL_ROOT_PASSWORD=121212
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=app_development
   
   phpma:

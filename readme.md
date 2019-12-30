@@ -11,8 +11,6 @@
 
 
 ## TODO'S
-- Conferir primeira para instalação MYSQL + diretorio de instalação
-- Colocar no .env os diretorios de download
 - Finalizar configuração do Proxy Load Balancer
 
 

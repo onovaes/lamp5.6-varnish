@@ -5,7 +5,15 @@
 ### Paths #################################################
 
 # Path com os scripts da sua aplicação. Uma pasta antes da public_html
-APP_CODE_PATH_HOST=/Users/onovaes/Documents/Sites
+APP_CODE_PATH_HOST=~/Documents/Sites
+
+# Escolha o caminho de armazenamento em sua máquina. Para todos os sistemas de armazenamento
+DATA_PATH_HOST=~/Documents/mysql-data
+
+# Pasta opcional para facilitar a sincronização de arquivos locais com os containers.
+# Tudo que estiver nessa pasta será sincronizado com  /var/dowload dentro dos containers
+DOWNLOAD_PATH_HOST=~/Downloads
+
 
 ### APACHE ################################################
 APACHE_HOST_HTTP_PORT=8080
@@ -16,3 +24,7 @@ APACHE_HOST_LOG_PATH=./logs/apache2
 
 ### VARNISH ###############################################
 VARNISH_PORT=80
+
+
+### MYSQL ################################################
+MYSQL_ROOT_PASSWORD=121212
