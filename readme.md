@@ -3,7 +3,7 @@
 - Ubuntu 16 + APACHE 2.4 + PHP 5.6.22 + MYSQL 5.6.22 + VARNISH 4
 - Autor: Gabriel Novaes <gabriel@dothcom.net>
 
-## Iniciando containers
+## Instalação
 - $git clone git@github.com:onovaes/lamp5.6-varnish.git
 - $cd lamp5.6-varnish
 - $cp env-example .env
