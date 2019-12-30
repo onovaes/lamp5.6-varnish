@@ -4,10 +4,10 @@
 - Autor: Gabriel Novaes <gabriel@dothcom.net>
 
 ## Iniciando containers
-- git clone git@github.com:onovaes/lamp5.6-varnish.git
-- cd lamp5.6-varnish
-- cp env-example .env
-- docker-compose up
+- $git clone git@github.com:onovaes/lamp5.6-varnish.git
+- $cd lamp5.6-varnish
+- $cp env-example .env
+- $docker-compose up
 
 
 ## TODO'S
