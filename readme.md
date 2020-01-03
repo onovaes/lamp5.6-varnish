@@ -11,8 +11,7 @@
 
 
 ## TODO'S
-- Finalizar configuração do Proxy (Load Balancer) 
-- Criar novo container e balancear carga entre os web servers
+- Finalizar configuração do Proxy (Load Balancer) e balancear carga entre os web servers
 
 
 ## Informações Gerais
@@ -22,4 +21,4 @@
 | phpserver      | localhost:8080     | Ubuntu 16.04.6 LTS - Apache 2.4.18 + PHP 5.6 (SEM VARNISH)  |
 | mysqldb        | mysqlserver:3306   | mysql 5.6.22                                                |
 | phpmyadmin     | localhost:81       |                                                             |
-| my-varnish     | localhost:80       | Ubuntu 16.04.6 LT + VARNISH 4                               |
+| my-varnish     | localhost:80       | Ubuntu 16.04.6 LT + VARNISH 4 (COM VARNISH)                 |
