@@ -1,23 +1,6 @@
 version: '3'
 
 services:
-  proxyrev:
-    build: proxy/
-    hostname: proxy
-    container_name: proxy
-    tty: true
-    volumes:
-      - ${DOWNLOAD_PATH_HOST}:/var/dowload   
-      - ./proxy/sites-available:/etc/nginx/sites-available
-    #ports:
-      #- '80:80'
-      #- '443:443'
-    depends_on:
-      - apache
-    links:
-      - apache
-
-
   varnish:
     build: varnish/
     hostname: varnish
