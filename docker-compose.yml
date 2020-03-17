@@ -27,6 +27,7 @@ services:
       - ${APACHE_HOST_HTTPS_PORT}:443
     volumes:
       - ${APP_CODE_PATH_HOST}:/var/www/html
+      - ${APP_CODE_PATH_HOST2}:/var/www/html/outros_sites
       - ./apache2/apache2.conf:/etc/apache2/apache2.conf
       - ${APACHE_HOST_LOG_PATH}:/var/log/apache2
       - ${APACHE_SITES_PATH}:/etc/apache2/sites-available
