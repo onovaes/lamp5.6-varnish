@@ -29,7 +29,7 @@ sub vcl_recv {
 
 
     # Did not cache the admin, login and other pages
-    if (req.url ~ "/(dothnews|sitemap|sitemaps|usuario|logout|feed|assinatura|atendimento)") {
+    if (req.url ~ "/(dothnews|sitemap|sitemaps|usuario|logout|feed|assinatura|atendimento|associe-se)") {
         return (pass);
     }
     # END GO TO BACKEND IMEDIATLY
@@ -121,7 +121,7 @@ sub vcl_backend_response {
     
     # Paginas que geram/removem cookie e nunca devem ser cacheadas
     # Se tirar essa linha o backend nao consegue criar o COOKIE
-    if (bereq.url ~ "/(dothnews|usuario|enquete|promocoes|atendimento|logout)") {
+    if (bereq.url ~ "/(dothnews|usuario|enquete|promocoes|assinatura|atendimento|associe-se|logout)") {
         set beresp.uncacheable = true;
         set beresp.ttl = 0s;
         return(deliver);
