@@ -1,7 +1,7 @@
 ## LAMP para Desenvolvimento baseado no docker 
 
 - Ubuntu 16 + APACHE 2.4 + PHP 5.6.22 + MYSQL 5.6.46 + VARNISH 4
-- Autor: Gabriel Novaes <gabriel@dothcom.net>
+- Autor: Gabriel Novaes <seproblema@gmail.com>
 
 ### Instalação
 - $git clone https://github.com/onovaes/lamp5.6-varnish.git
