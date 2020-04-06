@@ -2,20 +2,10 @@
 ##################### Configuracoes gerais#################
 ###########################################################
 
-### Paths #################################################
-
-# Path com os scripts da sua aplicação. Uma pasta antes da public_html
-APP_CODE_PATH_HOST=~/Documents/Sites
-
-# Escolha o caminho de armazenamento em sua máquina. Para todos os sistemas de armazenamento
-DATA_PATH_HOST=~/Documents/mysql-data
-
-# Pasta opcional para facilitar a sincronização de arquivos locais com os containers.
-# Tudo que estiver nessa pasta será sincronizado com  /var/dowload dentro dos containers
-DOWNLOAD_PATH_HOST=~/Downloads
-
 
 ### APACHE ################################################
+# Path com os scripts da sua aplicação. Uma pasta antes da public_html
+APP_CODE_PATH_HOST=~/Documents/Sites 
 APACHE_HOST_HTTP_PORT=8080
 APACHE_HOST_HTTPS_PORT=443
 APACHE_SITES_PATH=./apache2/sites-available
@@ -26,5 +16,18 @@ APACHE_HOST_LOG_PATH=./logs/apache2
 VARNISH_PORT=80
 
 
-### MYSQL ################################################
+### MYSQL 5.6 ################################################
+# para 5.6 e 5.7
 MYSQL_ROOT_PASSWORD=121212
+
+# Diretório Mysql 5.6 local
+DATA_PATH_HOST=~/Documents/mysql-data
+
+# Diretório Mysql 5.7 local
+DATA_PATH_HOST_57=~/Documents/mysql-data-57
+
+
+### COMPARTILHARMENTO DE VOLUMES ##############################################################
+# Pasta opcional para facilitar a sincronização de arquivos locais com os containers.
+# Tudo que estiver nessa pasta será sincronizado com  /var/dowload dentro dos containers
+DOWNLOAD_PATH_HOST=~/Downloads
