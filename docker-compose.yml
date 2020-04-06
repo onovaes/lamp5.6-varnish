@@ -47,8 +47,8 @@ services:
       - ${DATA_PATH_HOST}:/var/lib/mysql 
       - ${DOWNLOAD_PATH_HOST}:/var/dowload   
     environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=app_development
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: app_development
   
   phpma:
     container_name: myaserver
@@ -60,3 +60,16 @@ services:
       - 81:80
     environment:
       - PMA_ARBITRARY=1  
+
+  mysqldb57:
+    image: mysql:5.7.29
+    container_name: mysqlserver57
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - '3307:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ${DATA_PATH_HOST_57}:/var/lib/mysql 
+      - ${DOWNLOAD_PATH_HOST}:/var/dowload

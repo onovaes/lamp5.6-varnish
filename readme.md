@@ -1,6 +1,7 @@
 ## LAMP para Desenvolvimento baseado no docker 
 
 - Ubuntu 16 + APACHE 2.4 + PHP 5.6.22 + MYSQL 5.6.46 + VARNISH 4
+- Mysql 5.7.29 opcional
 - Autor: Gabriel Novaes <seproblema@gmail.com>
 
 ### Instalação
@@ -30,3 +31,4 @@
 | mysqldb        | mysqlserver:3306   | mysql 5.6.46                                                |
 | phpmyadmin     | localhost:81       |                                                             |
 | my-varnish     | localhost:80       | Ubuntu 16.04.6 LT + VARNISH 4 (COM VARNISH)                 |
+| mysqldb57      | mysqlserver57:3307 | Mysql 5.7.29 opcional                 |
